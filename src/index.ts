@@ -1,7 +1,4 @@
-// console.log("Hello TypeScript");
-// import cheerio from "cheerio";
-
-const PORT = 8000;
+const PORT = process.env.PORT || 8000; // env for Heroku
 
 // initialize
 const express = require("express");

@@ -1,5 +1,5 @@
 "use strict";
-var PORT = 8000;
+var PORT = process.env.PORT || 8000;
 var express = require("express");
 var axios = require("axios");
 var cheerio = require("cheerio");
