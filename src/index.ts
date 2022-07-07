@@ -1,4 +1,5 @@
-console.log("Hello TypeScript");
+// console.log("Hello TypeScript");
+// import cheerio from "cheerio";
 
 const PORT = 8000;
 
@@ -88,7 +89,7 @@ newspapers.forEach((newspaper) => {
       const html = response.data;
       const $ = cheerio.load(html);
 
-      $('a:contains("cost")', html).each(function () {
+      $('a:contains("cost")', html).each(function (this: cheerio.Element) {
         const title: string = $(this).text();
         const url: string = $(this).attr("href");
 
@@ -137,7 +138,7 @@ app.get("/news/:newspapersId", (req: any, res: any) => {
       const $ = cheerio.load(html);
 
       const articlesSpecific: { title: any; url: string; source: any }[] = [];
-      $('a:contains("cost")', html).each(function () {
+      $('a:contains("cost")', html).each(function (this: cheerio.Element) {
         const title = $(this).text();
         const url = $(this).attr("href");
 
